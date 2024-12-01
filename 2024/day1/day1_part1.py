@@ -3,7 +3,7 @@ import heapq
 heap_left = []
 heap_right = []
 
-with open("inputs/day1.txt", 'r') as file:
+with open("2024/inputs/day1.txt", 'r') as file:
     for line in file:
         left, right = map(int, line.strip().split())
         heapq.heappush(heap_left, left)

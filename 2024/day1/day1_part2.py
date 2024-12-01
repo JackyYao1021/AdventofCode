@@ -3,7 +3,7 @@ from collections import defaultdict
 left_dict = defaultdict(int)
 right_dict = defaultdict(int)
 
-with open("inputs/day1.txt", 'r') as file:
+with open("2024/inputs/day1.txt", 'r') as file:
     for line in file:
         left, right = map(int, line.strip().split())
         left_dict[left] += 1
