@@ -1,13 +1,13 @@
 def check(n, m, table): 
     count = 0
-    left_down = False
-    left_up = False
-    # check left down
+    diagonal = False
+    anti_diagonal = False
+    
     if table[n+1][m+1] == 'M' and table[n-1][m-1] == 'S' or table[n+1][m+1] == 'S' and table[n-1][m-1] == 'M':
-        left_down = True
+        diagonal = True    
     if table[n-1][m+1] == 'M' and table[n+1][m-1] == 'S' or table[n-1][m+1] == 'S' and table[n+1][m-1] == 'M':
-        left_up = True
-    return 1 if left_down and left_up else 0
+        anti_diagonal = True
+    return 1 if diagonal and anti_diagonal else 0
 
 table = []
 sum=0
