@@ -1,4 +1,6 @@
 import re
+import numpy as np
+import matplotlib.pyplot as plt
 
 ROBOT_PATTERN = re.compile(r'p=(-?\d+),(-?\d+) v=(-?\d+),(-?\d+)')
 
@@ -49,4 +51,13 @@ while True:
     seconds += 1
     
 print(seconds)
+
+with open("2024/day14/day14_output.txt", "w") as file:
+    for row in grid:
+        for cell in row:
+            if len(cell) > 0:
+                file.write("#")
+            else:
+                file.write(".")
+        file.write("\n")
     
