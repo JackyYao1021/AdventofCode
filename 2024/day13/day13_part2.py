@@ -54,20 +54,19 @@ def find_minimum(ax, ay, bx, by, px, py, a_weight, b_weight):
                 # if a is more expensive than b
                 # use b as much as possible
                 
-                # get the largest number of b and rest
+                # get the most b and the rest
                 b, db = divmod(px, bx)
-                # if rest is divisible by ax
+                # if the rest is divisible by ax
                 if db % ax == 0:
                     
                     a = db // ax
                     return a_weight * a + b_weight * b
                 else:
-                   for i in range(1, b_n):
-                       if (px - i * bx) % ax == 0:
-                           a = (px - i * bx) // ax
-                           return a_weight * a + b_weight * (b-i)
-                       else:
-                            return 0
+                    for i in range(1, b_n):
+                        if (px - i * bx) % ax == 0:
+                            a = (px - i * bx) // ax
+                            return a_weight * a + b_weight * (b-i)
+                    return 0
             else:
                 a, da = divmod(px, ax)
                 if da % bx == 0:
@@ -77,9 +76,8 @@ def find_minimum(ax, ay, bx, by, px, py, a_weight, b_weight):
                     for i in range(1, a_n):
                         if (px - i * ax) % bx == 0:
                             b = (px - i * ax) // bx
-                            return a_weight * (a-i) + b_weight*b
-                        else:
-                            return 0
+                            return a_weight * (a-i) + b_weight*b    
+                    return 0
     return 0        
          
 
@@ -91,10 +89,3 @@ for setting in settings:
     ans += find_minimum(ax, ay, bx, by, px, py, 3, 1)
     
 print(ans)
-    
-    
-
-    
-    
-    # button_As.append(line)
-    # Read the second line
