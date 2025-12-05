@@ -9,25 +9,21 @@ for i in range(len(grid)):
         if grid[i][j] == '@':
             roll_positions.add((i, j))
 
+
 def count_rolls(x, y):
-    removed = set()
+    num_removed = 0
     for dx, dy in directions:
         nx, ny = x + dx, y + dy
         if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]):
             if grid[nx][ny] == '@':
-                removed.add((nx, ny))
-                
-    return removed
+                num_removed += 1
+    return num_removed
 
-pre_ans = -1
 ans = []
-
-
 while ans == [] or ans[-1] != 0: 
-    positions = roll_positions.copy()
-    for i, j in positions:
+    for i, j in roll_positions:
         near_rolls = count_rolls(i, j)
-        if len(near_rolls) < 4:
+        if near_rolls < 4:
             removed.add((i, j))
     ans.append(len(removed))
     roll_positions -= removed
@@ -35,5 +31,6 @@ while ans == [] or ans[-1] != 0:
         grid[x][y] = '.'
     removed.clear()
             
+
 print(ans[0])
 print(sum(ans))
